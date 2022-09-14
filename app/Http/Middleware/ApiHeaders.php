@@ -16,6 +16,7 @@ class ApiHeaders
      */
     public function handle(Request $request, Closure $next)
     {
+        //
         if($request->header('token') != env('API_KEY')){
             return response()->json(['erro' => 'api key incorreta']);
         }
