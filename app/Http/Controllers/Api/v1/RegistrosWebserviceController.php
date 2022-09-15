@@ -1,16 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Api\v1;
 
 use App\Http\Controllers\Controller;
+use App\Models\RegistrosWebservice;
 use Illuminate\Http\Request;
-use App\Models\Parcelas;
-use Illuminate\Http\Response;
 
-
-class ParcelasController extends Controller
+class RegistrosWebserviceController extends Controller
 {
-
     /**
      * Display a listing of the resource.
      *
@@ -18,11 +15,7 @@ class ParcelasController extends Controller
      */
     public function index()
     {
-        // return Parcelas::all();
-        return response(Parcelas::all())
-            ->withHeaders([
-                'X-CSRF-Token' => '1234',
-            ]);
+        return response()->json(RegistrosWebservice::all());
     }
 
     /**
@@ -33,7 +26,12 @@ class ParcelasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rw = new RegistrosWebservice;
+        
+        if(!$rw->fill($request->all())->save()){
+            return response()->json('erro ao salvar');    
+        }
+        return response()->json('ok');
     }
 
     /**
