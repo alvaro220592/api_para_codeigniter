@@ -19,10 +19,7 @@ class ParcelasController extends Controller
     public function index()
     {
         // return Parcelas::all();
-        return response(Parcelas::all())
-            ->withHeaders([
-                'X-CSRF-Token' => '1234',
-            ]);
+        return response(Parcelas::all());
     }
 
     /**
