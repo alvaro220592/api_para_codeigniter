@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Api\v1;
 
 use App\Http\Controllers\Controller;
-use App\Models\RegistrosWebservice;
+use App\Models\Boleto;
 use Illuminate\Http\Request;
 
-class RegistrosWebserviceController extends Controller
+class BoletoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class RegistrosWebserviceController extends Controller
      */
     public function index()
     {
-        return response()->json(['registros_webservice' => RegistrosWebservice::all()]);
+        return response()->json(['boletos' => Boleto::all()]);
     }
 
     /**
@@ -26,12 +26,7 @@ class RegistrosWebserviceController extends Controller
      */
     public function store(Request $request)
     {
-        $rw = new RegistrosWebservice;
-        
-        if(!$rw->fill($request->all())->save()){
-            return response()->json('erro ao salvar');    
-        }
-        return response()->json('ok');
+        //
     }
 
     /**

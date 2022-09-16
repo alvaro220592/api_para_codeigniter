@@ -31,3 +31,7 @@ criar o middleware pra verificar a key
 
 inserir na rota o middleware
     ->middleware('apiHeaders');
+
+criação de model controller pras parcelas(no ambiente real será de conciliações(ConciliacaoController)) e registros webservice. Os controllers dentro de Api/v1
+
+na requisicao post, precisa colocar no header tbm o application/json
